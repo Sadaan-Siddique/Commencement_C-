@@ -1,0 +1,23 @@
+Program = (IDE sent this program to compiler)--> compiler --(Can sent it to CPU or memory)--> CPU ---> Processor(Brain of computer)
+
+VARIABLE
+   is a container or anything in which we store the information 
+   (data). It is a way to store the data in the computer's memory.
+   Variables are your way to access your computer's memory.
+
+DIRECTORIES
+   A directory is a container for organizing files and other 
+   directories in computer.
+   Directories are structured in a hierarchical way, with the root 
+   directory at the top.
+
+   Command-line tools like cd, ls, and pwd allow you to navigate and 
+   manipulate directories in the command-line interface.
+   Directories help keep your files organized, making it easier to 
+   locate and manage your projects, documents, and system files.
+   Packing = Libraries and modules are same thing.
+
+Console commands (Linux):
+   ls = list all files in the current directory in which I'm currently working.
+   cd = change directory (e.g., cd Star_of_C)
+   pwd = print working directory (e.g., /home/Star_of_C)
