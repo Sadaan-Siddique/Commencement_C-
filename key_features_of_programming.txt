@@ -21,3 +21,4 @@ Console commands (Linux):
    ls = list all files in the current directory in which I'm currently working.
    cd = change directory (e.g., cd Star_of_C)
    pwd = print working directory (e.g., /home/Star_of_C)
+   To run the C++ code, type : 'g++ hello.cpp -0 C++' then type 'Enter' then type './C++.exe'
