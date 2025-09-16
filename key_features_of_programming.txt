@@ -22,3 +22,10 @@ Console commands (Linux):
    cd = change directory (e.g., cd Star_of_C)
    pwd = print working directory (e.g., /home/Star_of_C)
    To run the C++ code, type : 'g++ hello.cpp -o C++' then type 'Enter' then type './C++.exe'
+
+PowerShell interprets ' & ' as a special operator. So it throws the error : The ampersand (&) character is not allowed.
+
+C++ treats spaces inside the number as multiple tokens → invalid constant.
+like : #define pi 3.14159 26535 89793 ...
+instead 
+#define pi 3.14159265358979323846  
