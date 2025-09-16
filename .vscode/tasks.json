@@ -3,7 +3,8 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:/msys64/mingw64/bin/g++.exe",
+            // "command": "C:/msys64/mingw64/bin/g++.exe",
+            "command": "C:/mingw64/bin/g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
@@ -13,7 +14,8 @@
                 ""
             ],
             "options": {
-                "cwd": "C:/msys64/mingw64/bin"
+                //  "cwd": "C:/msys64/mingw64/bin"
+                "cwd": "C:/mingw64/bin"
             },
             "problemMatcher": [
                 "$gcc"
