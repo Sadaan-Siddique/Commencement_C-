@@ -24,14 +24,13 @@ int main()
     cout << delayed << endl;
     if (units <= 100)
     {
+      bill = units * 10;
       switch (delayed)
       {
       case true:
-        bill = units * 10 + 500;
-        cout << "Your Bill with late payment submission is : " << bill << endl;
+        cout << "Your Bill with late payment submission is : " << bill + 500 << endl;
         break;
       case false:
-        bill = units * 10;
         cout << "Your Bill is : " << bill << endl;
         break;
       default:
@@ -41,14 +40,13 @@ int main()
     }
     else if (units > 100 && units <= 300)
     {
+      bill = 100 * 10 + (units - 100) * 15;
       switch (delayed)
       {
       case true:
-        bill = units * 15 + 500;
-        cout << "Your Bill with late payment submission is : " << bill << endl;
+        cout << "Your Bill with late payment submission is : " << bill + 500 << endl;
         break;
       case false:
-        bill = units * 15;
         cout << "Your Bill is : " << bill << endl;
         break;
       default:
@@ -59,17 +57,15 @@ int main()
     else if (units > 300)
     {
       if (units > 400)
-
       {
+        bill = 100 * 10 + 100 * 15 + (units - 200) * 20;
         switch (delayed)
         {
         case true:
-          bill = units * 20 + 0.10 * units + 500;
-          cout << "Your Bill with surcharges and late payment submission is : " << bill << endl;
+          cout << "Your Bill with surcharges and late payment submission is : " << 0.10 * bill + bill + 500 << endl;
           break;
         case false:
-          bill = units * 20 + 0.10 * units;
-          cout << "Your Bill with surcharges is : " << bill << endl;
+          cout << "Your Bill with surcharges is : " << 0.1 * bill + bill << endl;
           break;
         default:
           cout << "Write either 1 or 0 .";
@@ -78,14 +74,13 @@ int main()
       }
       else
       {
+        bill = 100 * 10 + 100 * 15 + (units - 200) * 20;
         switch (delayed)
         {
         case true:
-          bill = units * 20 + 500;
-          cout << "Your Bill with late payment submission is : " << bill << endl;
+          cout << "Your Bill with late payment submission is : " << bill + 500 << endl;
           break;
         case false:
-          bill = units * 20;
           cout << "Your Bill is : " << bill << endl;
           break;
         default:
