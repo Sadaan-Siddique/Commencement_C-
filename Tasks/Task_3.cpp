@@ -19,9 +19,11 @@ int main()
 
   if (units > 0)
   {
+
     cout << "Is your payment delayed? (Be honest) 'Yes = 1/ No = 0' : ";
     cin >> delayed;
     cout << delayed << endl;
+
     if (units <= 100)
     {
       bill = units * 10;
@@ -58,7 +60,7 @@ int main()
     {
       if (units > 400)
       {
-        bill = 100 * 10 + 100 * 15 + (units - 200) * 20;
+        bill = 100 * 10 + 200 * 15 + (units - 300) * 20;
         switch (delayed)
         {
         case true:
@@ -74,7 +76,7 @@ int main()
       }
       else
       {
-        bill = 100 * 10 + 100 * 15 + (units - 200) * 20;
+        bill = 100 * 10 + 200 * 15 + (units - 300) * 20;
         switch (delayed)
         {
         case true:
