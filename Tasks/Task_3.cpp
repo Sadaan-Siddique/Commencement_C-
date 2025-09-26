@@ -16,24 +16,23 @@ int main()
   bool delayed;
   cout << "Enter your bill units : ";
   cin >> units;
-  cout << "Is your payment delayed? (Be honest) 'Yes = 1/ No = 0' : ";
-  cin >> delayed;
 
   if (units > 0)
   {
+    cout << "Is your payment delayed? (Be honest) 'Yes = 1/ No = 0' : ";
+    cin >> delayed;
     cout << delayed << endl;
     if (units <= 100)
     {
-      cout << delayed << endl;
       switch (delayed)
       {
       case true:
         bill = units * 10 + 500;
-        cout << " Your Bill with late payment submission is : " << bill << endl;
+        cout << "Your Bill with late payment submission is : " << bill << endl;
         break;
       case false:
         bill = units * 10;
-        cout << " Your Bill is : " << bill << endl;
+        cout << "Your Bill is : " << bill << endl;
         break;
       default:
         cout << "Write either 1 or 0 .";
@@ -46,7 +45,7 @@ int main()
       {
       case true:
         bill = units * 15 + 500;
-        cout << " Your Bill with late payment submission is : " << bill << endl;
+        cout << "Your Bill with late payment submission is : " << bill << endl;
         break;
       case false:
         bill = units * 15;
@@ -83,7 +82,7 @@ int main()
         {
         case true:
           bill = units * 20 + 500;
-          cout << " Your Bill with late payment submission is : " << bill << endl;
+          cout << "Your Bill with late payment submission is : " << bill << endl;
           break;
         case false:
           bill = units * 20;
