@@ -1,104 +1,54 @@
 #include <iostream>
-#include <string>
 using namespace std;
-
-// This program is about : to calculate an electricity bill based on the following:
-// • Rates:
-// ▪ First 100 units → Rs. 10/unit o Next 200 units → Rs. 15/unit
-// ▪ Above 300 units → Rs. 20/unit
-// • Add a 10% surcharge if total units exceed 400.
-// • Add a late fee of Rs. 500 if payment is delayed (user provides a boolean input).
-// • Use nested if–else for tiered calculations and a switch to handle late payment confirmation (Yes/No).
 
 int main()
 {
-  int units, bill;
-  bool delayed;
-  cout << "Enter your bill units : ";
-  cin >> units;
+    int units;
+    bool delayed;
+    double bill = 0;
 
-  if (units > 0)
-  {
+    cout << "Enter your bill units : ";
+    cin >> units;
 
-    cout << "Is your payment delayed? (Be honest) 'Yes = 1/ No = 0' : ";
+    if (units <= 0)
+    {
+        cout << "Invalid Input. Units must be positive integer." << endl;
+        return 0;
+    }
+
+    cout << "Is your payment delayed? (Yes=1 / No=0): ";
     cin >> delayed;
-    cout << delayed << endl;
 
-    if (units <= 100)
-    {
-      bill = units * 10;
-      switch (delayed)
-      {
-      case true:
-        cout << "Your Bill with late payment submission is : " << bill + 500 << endl;
-        break;
-      case false:
-        cout << "Your Bill is : " << bill << endl;
-        break;
-      default:
-        cout << "Write either 1 or 0 .";
-        break;
-      }
+    // Nested if–else for tiered calculation
+    if (units <= 100){
+        bill = units * 10;
     }
-    else if (units > 100 && units <= 300)
-    {
-      bill = 100 * 10 + (units - 100) * 15;
-      switch (delayed)
-      {
-      case true:
-        cout << "Your Bill with late payment submission is : " << bill + 500 << endl;
-        break;
-      case false:
-        cout << "Your Bill is : " << bill << endl;
-        break;
-      default:
-        cout << "Write either 1 or 0 .";
-        break;
-      }
+    else if (units <= 300){
+        bill = 100 * 10 + (units - 100) * 15;
     }
-    else if (units > 300)
-    {
-      if (units > 400)
-      {
+    else{
         bill = 100 * 10 + 200 * 15 + (units - 300) * 20;
-        switch (delayed)
-        {
-        case true:
-          cout << "Your Bill with surcharges and late payment submission is : " << 0.10 * bill + bill + 500 << endl;
-          break;
-        case false:
-          cout << "Your Bill with surcharges is : " << 0.1 * bill + bill << endl;
-          break;
-        default:
-          cout << "Write either 1 or 0 .";
-          break;
-        }
-      }
-      else
-      {
-        bill = 100 * 10 + 200 * 15 + (units - 300) * 20;
-        switch (delayed)
-        {
-        case true:
-          cout << "Your Bill with late payment submission is : " << bill + 500 << endl;
-          break;
-        case false:
-          cout << "Your Bill is : " << bill << endl;
-          break;
-        default:
-          cout << "Write either 1 or 0 .";
-          break;
-        }
-      }
     }
-  }
-  else if (units == 0)
-  {
-    cout << "Invalid Input." << endl;
-  }
-  else if (units < 0)
-  {
-    cout << "Invalid Input. Units must be positive." << endl;
-  }
-  return 0;
+
+    // Add surcharge if >400
+    if (units > 400){
+        bill = bill*1.10;
+        // bill = 0.10*bill + bill 
+    }
+
+    // Switch for late payment confirmation
+    switch (delayed)
+    {
+    case true:
+        bill += 500;
+        cout << "Your Final Bill (with late fee) is : " << bill << endl;
+        break;
+    case false:
+        cout << "Your Final Bill is : " << bill << endl;
+        break;
+    default:
+        cout << "Invalid input for late payment. Enter 1 or 0." << endl;
+    }
+
+    return 0;
 }
