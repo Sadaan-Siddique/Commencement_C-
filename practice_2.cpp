@@ -30,15 +30,21 @@ int main()
         if (num_2 == 0)
         {
             cout << "Undefined";
+            break;
         }
         else
         {
-            cout << "By dividing : " << num_1 / num_2;
+            cout << "By dividing : " << (static_cast<double>(num_1) / num_2);
             break;
         }
     case '%':
-        cout << "Their remainder is : " << num_1 % num_2;
+        if (num_2 == 0)
+            cout << "Undefined (division b zero)";
+        else
+            cout << "Their remainder is : " << num_1 % num_2;
         break;
+    default:
+        cout << "Please type an operator among ' + - * / % '";
     }
     return 0;
 }
@@ -47,24 +53,24 @@ int main()
 
 // 👉 Write a C++ program that takes a number as input and tells whether it’s positive, negative, or zero.
 // (Use if–else)
-int main()
-{
-    int num;
-    cout << "Please enter a number : ";
-    cin >> num;
-    if (num > 0)
-    {
-        cout << "Number you entered is positive ";
-    }
-    else if (num == 0)
-    {
-        cout << "Number you entered is zero";
-    }
-    else
-    {
-        cout << "Number you entered is negative ";
-    }
-    cout << endl;
-    cout << num;
-    return 0;
-}
+// int main()
+// {
+//     int num;
+//     cout << "Please enter a number : ";
+//     cin >> num;
+//     if (num > 0)
+//     {
+//         cout << "Number you entered is positive ";
+//     }
+//     else if (num == 0)
+//     {
+//         cout << "Number you entered is zero";
+//     }
+//     else
+//     {
+//         cout << "Number you entered is negative ";
+//     }
+//     cout << endl;
+//     cout << num;
+//     return 0;
+// }
