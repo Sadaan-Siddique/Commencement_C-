@@ -17,11 +17,13 @@ int main()
 		i -= 5;
 		row_elements++;
 	}
-
+	cout << "Before calling main_2()\n";
 	main_2();
+	cout << "Returned from main_2()\n";
 	cout << "hello";
+	cout << "Before calling main_1()\n";
 	main_1();
-
+	cout << "Returned from main_1()\n";
 	return 0;
 }
 
