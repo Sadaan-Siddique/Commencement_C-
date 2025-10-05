@@ -24,6 +24,12 @@ int main()
 
         cout << "Write your obtained marks (0-100) : ";
         cin >> marks;
+        while (marks < 0 || marks > 100)
+        {
+            cout << "Write your obtained marks (0-100) : ";
+            cin >> marks;
+        }
+
         switch (selection)
         {
         case 1:
@@ -54,15 +60,27 @@ int main()
             }
             break;
         }
+        case 3:
+        {
+
+            return 0;
+        }
         default:
         {
             main();
             return 0;
         }
         }
-        cout << "Please select a choice 1 or 2 or 3 : ";
+        cout << "Again select a choice 1 or 2 or 3 : ";
         cin >> selection;
-    } while (selection != 3);
+    } while (selection == 1 || selection == 2);
 
+    if (selection < 1 || selection > 3)
+    {
+        main();
+        return 0;
+    }
+
+    cout << "Program ended.";
     return 0;
 }
