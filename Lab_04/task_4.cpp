@@ -26,6 +26,7 @@ int main()
     }
     cout << endl
          << endl
+         << "Sum of "
          << output
          << sum;
     return 0;
