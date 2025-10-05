@@ -5,82 +5,68 @@ using namespace std;
 int main()
 {
     int selection = 0, marks = 0;
-    cout << "Please select a choice 1 or 2 or 3 : ";
-    cin >> selection;
-    cout << endl;
-    if (selection < 1 || selection > 3)
-    {
-        main();
-        return 0;
-    }
-    if (selection == 3)
-    {
-        cout << "Program ended.";
-        return 0;
-    }
 
     do
     {
-
-        cout << "Write your obtained marks (0-100) : ";
-        cin >> marks;
-        while (marks < 0 || marks > 100)
-        {
-            cout << "Write your obtained marks (0-100) : ";
-            cin >> marks;
-        }
+        cout << "Menu\n"
+             << "1. Check if student passed\n"
+             << "2. Check if student got distinction (marks ≥ 80)" << endl
+             << "3. Exit\n"
+             << "Enter choice : ";
+        cin >> selection;
 
         switch (selection)
         {
         case 1:
         {
+            cout << "Enter your obtained marks (0-100) : ";
+            cin >> marks;
+            while (marks < 0 || marks > 100)
+            {
+                cout << "Write your obtained marks (0-100) : ";
+                cin >> marks;
+            }
             if (marks >= 50)
             {
-                cout << "Passed!" << endl
-                     << endl;
+                cout << "Passed\n";
             }
             else
             {
-                cout << "Failed!" << endl
-                     << endl;
+                cout << "Failed\n";
             }
             break;
         }
         case 2:
         {
+            cout << "Enter your obtained marks : ";
+            cin >> marks;
+            while (marks < 0 || marks > 100)
+            {
+                cout << "Write your obtained marks (0-100) : ";
+                cin >> marks;
+            }
             if (marks >= 80)
             {
-                cout << "Distinction!" << endl
-                     << endl;
+                cout << "Distinction\n";
             }
             else
             {
-                cout << "No Distinction!" << endl
-                     << endl;
+                cout << "No Distinction\n";
             }
             break;
         }
         case 3:
         {
-
-            return 0;
+            cout << "Exiting program...\n";
+            break;
         }
         default:
         {
-            main();
-            return 0;
+            cout << "Please select a choice 1 or 2 or 3. " << endl;
         }
         }
-        cout << "Again select a choice 1 or 2 or 3 : ";
-        cin >> selection;
-    } while (selection == 1 || selection == 2);
+        cout << endl;
+    } while (selection != 3);
 
-    if (selection < 1 || selection > 3)
-    {
-        main();
-        return 0;
-    }
-
-    cout << "Program ended.";
     return 0;
 }
