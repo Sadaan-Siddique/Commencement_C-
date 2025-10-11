@@ -1,13 +1,49 @@
 #include <iostream>
+#include <string>
 using namespace std;
+
+// Factorial Function
+int main()
+{
+    int num = 0, i = 0;
+    long long factorial = 1;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    for (int save = num; save != 0; i++)
+    {
+        save -= 1;
+    }
+    for (int save = num; i != 0; i--)
+    {
+        factorial *= save;
+        save -= 1;
+    }
+    cout << endl
+         << num << "! = " << factorial;
+    return 0;
+}
+
+int main_3()
+{
+    string concat = "The number is: ", sentence = "Your name is: ", name = "";
+    int num = 0;
+    cout << "Wtite a number: ";
+    cin >> num;
+    cout << "Write your name: ";
+    cin >> name;
+    concat = "The number is: " + to_string(num);
+    cout << endl
+         << concat << endl
+         << sentence.append(name);
+    return 0;
+}
 
 // Quiz 1 Code
 
-int main()
+int main_1()
 {
-
-
-
     int A = 0;
     cout << "Write your amount in Rupees : Rs.";
     cin >> A;
@@ -50,19 +86,6 @@ int main()
 
     return 0;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // int A = 0;
     // cout << "Write your amount in Rupees : Rs.";
     // cin >> A;
@@ -83,24 +106,7 @@ int main()
     // cout << "2 : " << (((((((A % 5000) % 1000) % 500) % 100) % 50) % 10) % 5) / 2 << endl;
     // cout << "1 : " << ((((((((A % 5000) % 1000) % 500) % 100) % 50) % 10) % 5) % 2) / 1 << endl;
     // return 0;
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // Task 2: Simple Calculator
 
@@ -156,49 +162,5 @@ int main_2()
     default:
         cout << "Please type an operator among ' + - * / % '";
     }
-    return 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Task 1: Number Sign Checker
-
-// 👉 Write a C++ program that takes a number as input and tells whether it’s positive, negative, or zero.
-// (Use if–else)
-int main_3()
-{
-    int num;
-    cout << "Please enter a number : ";
-    cin >> num;
-    if (num > 0)
-    {
-        cout << "Number you entered is positive ";
-    }
-    else if (num == 0)
-    {
-        cout << "Number you entered is zero";
-    }
-    else
-    {
-        cout << "Number you entered is negative ";
-    }
-    cout << endl;
-    cout << num;
     return 0;
 }
