@@ -1,0 +1,11 @@
+Is the pair 540 666 amicable? No
+Is the pair 1184 1200 amicable? No
+Is the pair 5020 5564 amicable? Yes
+Is the pair 280 220 amicable? No
+Is the pair 284 220 amicable? Yes
+Is the pair 6232 6368 amicable? Yes
+Is the pair 220 284 amicable? Yes
+Is the pair 1120 1184 amicable? No
+Is the pair 5666 9898 amicable? No
+Is the pair 2346 234 amicable? No
+Is the pair 876 987 amicable? No
