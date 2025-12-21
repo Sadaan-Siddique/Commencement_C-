@@ -44,7 +44,7 @@ int main()
     if (passDistinctSymbols < passLength)
         for (int i = 1; i <= (passLength - passDistinctSymbols); i++)
         {
-            randNum = rand() % passDistinctSymbols; // this expression will only generate numbers from 0 to (passDistinctSymbols - 1)
+            randNum = rand() % passDistinctSymbols;// this expression will only generate numbers from 0 to (passDistinctSymbols - 1)
             if (password[passDistinctSymbols + i - 2] == password[randNum]) // at this point, password string has length = passDistinctSymbols but have indices range from 0 to (passDistinctSymbols - 1)
             {
                 i--;
@@ -54,7 +54,7 @@ int main()
         }
 
     cout << endl
-         << password << endl;
+         << "Password generated is: " << password << endl;
 
     // time_t now;
     cout << rand() << endl;
