@@ -32,7 +32,6 @@ int main()
         bool isRandCharEqCh = false;
         randNum = rand() % (Max - Min + 1) + Min; // this expression will only generate numbers from 97 to 122
         randChar = (char)randNum;
-        cout << randChar;
         for (int ch : password)
             if (randChar == ch)
             {
@@ -48,7 +47,6 @@ int main()
         {
             randNum = rand() % (passLength - passDistinctSymbols);// this expression will only generate numbers from 0 to (passLength - passDistinctSymbols)
             int size = password.length() - 1;
-            // password[passDistinctSymbols + i - 2]
             if (password[size] == password[randNum]) // at this point, password string has length = passDistinctSymbols but have indices range from 0 to (passDistinctSymbols - 1)
             {
                 i--;
@@ -60,11 +58,5 @@ int main()
     cout << endl
          << "Password generated is: " << password << endl;
 
-    // time_t now;
-    cout << rand() << endl;
-    cout << rand() % 10 << endl;
-    cout << rand() % 100 << endl;
-    cout << rand() % (Max - Min + 1) << endl;
-    cout << rand() % (Max - Min + 1) + 1 << endl;
-    cout << rand() % (Max - Min + 1) + Min << endl;
+    return 0;
 }
