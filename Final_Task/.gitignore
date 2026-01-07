@@ -1,0 +1,12 @@
+# Ignore compiled binaries and build artifacts
+*.exe
+*.obj
+*.o
+*.out
+/build/
+/bin/
+
+# IDE settings
+.vscode/
+*.user
+*.suo
