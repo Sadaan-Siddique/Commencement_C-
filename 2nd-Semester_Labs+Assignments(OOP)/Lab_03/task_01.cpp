@@ -16,7 +16,6 @@ void addMarksFunc(int &size)
         break;
     case 'N':
         return;
-        break;
     default:
         cout << "\n\033[31mINVALID COMMAND!\033[0m\n\n";
         addMarksFunc(size);
@@ -27,18 +26,21 @@ void addMarksFunc(int &size)
 int main()
 {
     int size{3};
-    int *arrPtr = new int[size];
+    int *marksArrPtr = new int[size];
 
     for (int i = 0; i < size; i++)
     {
         cout << "Enter marks of student " << (i + 1) << " : ";
-        cin >> *(arrPtr + i);
+        cin >> *(marksArrPtr + i);
         if (i == (size - 1))
             addMarksFunc(size);
     }
     cout<<"\nMarks are: \n";
     for (int i = 0; i < size; i++)
-        cout << "Student " << (i + 1) << " : " << *(arrPtr + i) << endl;
+        cout << "Student " << (i + 1) << " : " << *(marksArrPtr + i) << endl;
+
+    delete[] marksArrPtr;
+    marksArrPtr = nullptr;
 
     return 0;
 }
