@@ -1,112 +1,100 @@
-#include <iostream>
-#include <limits>
-using std::cout, std::endl, std::cin;
+    #include <iostream>
+    #include <limits>
+    using std::cout, std::endl, std::cin;
 
-class Student 
-{
-    private:
-        std::string m_name {};
-        int m_ID {};
-        double m_marks[3] = {};
-        double m_avgMarks {};
-
-    public:
-        const std::string& getName() const { return m_name; }
-        void setName(std::string name) { m_name = name; }
-        const int& getID() const { return m_ID; }
-        void setId(int ID) { m_ID = ID; }
-        const double* getMarks() const { return m_marks; }
-        void setMarks(double marks, int index) 
-        {
-            m_marks[index] = marks; 
-            for(const double &element : m_marks)  m_avgMarks += element;
-            m_avgMarks /= 3;
-         }
-        
-        const double& getAvgMarks() const { return m_avgMarks;}
-
-};
-
-// this function will ask from user to either enter more marks or not
-void addStdFunc(int &size)
-{
-    char yN = ' ';
-    int additionalStds{};
-    cout << "Want to add more Students? (Y/N): ";
-    cin >> yN;
-    switch (yN)
+    class Student 
     {
-    case 'Y':
-        cout << "Enter number of additional students: ";
-        cin >> additionalStds;
-        size += additionalStds;
-        break;
-    case 'N':
-        return;
-    default:
-        cout << "\n\033[31mINVALID COMMAND!\033[0m\n\n"; // to handle invalid commands entered
-        addStdFunc(size); // I have used recursion to again ask from user. It'll not affect my code
-    }
-    return;
-}
+        private:
+            std::string m_name {};
+            int m_ID {};
+            double m_marks[3] = {};
+            double m_avgMarks {};
+            char m_grade {};
 
-int main()
-{
-    int size{2};
-    Student *studentsPtr = new Student[size]; // creating an array for two objects of Student class
+        public:
+            const std::string& get_name() const { return m_name; }
+            void set_name(std::string name) { m_name = name; }
+            const int& get_ID() const { return m_ID; }
+            void set_Id(int ID) { m_ID = ID; }
+            const double* get_marks() const { return m_marks; }
+            void set_marks(double marks, int index) 
+            {
+                m_marks[index] = marks; 
+                m_avgMarks = 0;
+                for(const double &element : m_marks)  m_avgMarks += element;
+                m_avgMarks /= 3;
 
-    for(int i = 0; i < size; i++)
+                if (m_avgMarks >= 90 ) m_grade = 'A';
+                else if (m_avgMarks >= 80 ) m_grade = 'B';
+                else if (m_avgMarks >= 65 ) m_grade = 'C';
+                else if (m_avgMarks >= 50 ) m_grade = 'D';
+                else if (m_avgMarks < 50 ) m_grade = 'F';
+            }
+            
+            const double& get_avgMarks() const { return m_avgMarks; }
+            const char& get_grade() const { return m_grade; }
+    };
+
+    int main()
     {
-        cout<<"Student "<< (i + 1) <<" :";
-
-        cout<<"\n  Name: ";
-        std::string name {};
-        std::getline(cin, name);
-        (*(studentsPtr + i)).setName(name);
-
-        cout<<"  ID: ";
-        int id {};
-        cin >> id;
-        (*(studentsPtr + i)).setId(id);
-
-        cout<<"  Marks: \n";
-        double marks {};
-        for(int j = 0; j < 3; j++){
-            cout<<"\tFor Subject "<< (j + 1) << ": ";
-            cin >> marks;
-            (*(studentsPtr + i)).setMarks(marks, j);
-        }
+        int size{2};
+        cout << "Enter number of students: ";
+        cin >> size;
+        Student *studentsPtr = new Student[size]; // creating an array for two objects of Student class
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        if (i == (size - 1)) // when i is equal to n - 1, then this will take confirmity from user to either end the loop or not
-            addStdFunc(size);
-        cout<<endl;
-    }    
 
-    cout<<"\n-----Displaying INFO-----\n";
+        for(int i = 0; i < size; i++)
+        {
+            cout<<"Student "<< (i + 1) <<" :";
 
-    for(int i = 0; i < 2; i++)
-    {
-        cout<<"\nStudent "<< (i + 1) <<" :";
+            cout<<"\n  Name: ";
+            std::string name {};
+            std::getline(cin, name);
+            (*(studentsPtr + i)).set_name(name);
 
-        cout<<"\n  Name: ";
-        cout << (studentsPtr+ i)->getName();
+            cout<<"  ID: ";
+            int id {};
+            cin >> id;
+            (*(studentsPtr + i)).set_Id(id);
 
-        cout<<"\n  ID: ";
-        cout << (studentsPtr + i)->getID();
+            cout<<"  Marks: \n";
+            double marks {};
+            for(int j = 0; j < 3; j++){
+                cout<<"\tFor Subject "<< (j + 1) << ": ";
+                cin >> marks;
+                (*(studentsPtr + i)).set_marks(marks, j);
+            }
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout<<endl;
+        }    
 
-        cout<<"\n  Marks: \n";
-        const double *marksPtr = (studentsPtr + i)->getMarks();
-        for(int j = 0; j < 3; j++){
-            cout<<"\tFor Subject "<< (j + 1) << ": ";
-            cout << *(marksPtr + j) << endl;
+        cout<<"\n-----Displaying INFO-----\n";
+
+        for(int i = 0; i < size; i++)
+        {
+            cout<<"\nStudent "<< (i + 1) <<" :";
+
+            cout<<"\n  Name: ";
+            cout << (studentsPtr+ i)->get_name();
+
+            cout<<"\n  ID: ";
+            cout << (studentsPtr + i)->get_ID();
+
+            cout<<"\n  Marks: \n";
+            const double *marksPtr = (studentsPtr + i)->get_marks();
+            for(int j = 0; j < 3; j++){
+                cout<<"\tFor Subject "<< (j + 1) << ": ";
+                cout << *(marksPtr + j) << endl;
+            }
+
+            cout<<"  Average Marks: "<<(studentsPtr + i)->get_avgMarks()<<endl;
+            cout<<"  Grade: "<<(studentsPtr + i)->get_grade()<<endl;
+
         }
 
-        cout<<"  Average Marks: "<<(studentsPtr + i)->getAvgMarks()<<endl;
+        delete[] studentsPtr;
+        studentsPtr = nullptr;
+
+        return 0;
+        
     }
-
-    delete[] studentsPtr;
-    studentsPtr = nullptr;
-
-    return 0;
-    
-}
